@@ -12,6 +12,39 @@ export interface SkillsSkills extends Struct.ComponentSchema {
   };
 }
 
+export interface EducationEducation extends Struct.ComponentSchema {
+  collectionName: 'components_education_educations';
+  info: {
+    displayName: 'Education';
+    description: '';
+  };
+  attributes: {
+    universityName: Schema.Attribute.String;
+    startDate: Schema.Attribute.String;
+    endDate: Schema.Attribute.String;
+    major: Schema.Attribute.String;
+    degree: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+  };
+}
+
+export interface ExperiencesExperiences extends Struct.ComponentSchema {
+  collectionName: 'components_experiences_experiences';
+  info: {
+    displayName: 'Experiences';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    companyName: Schema.Attribute.String;
+    city: Schema.Attribute.String;
+    state: Schema.Attribute.String;
+    startDate: Schema.Attribute.String;
+    endDate: Schema.Attribute.String;
+    currentlyWorking: Schema.Attribute.Boolean;
+    workSummary: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedSlider extends Struct.ComponentSchema {
   collectionName: 'components_shared_sliders';
   info: {
@@ -74,50 +107,17 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
-export interface ExperiencesExperiences extends Struct.ComponentSchema {
-  collectionName: 'components_experiences_experiences';
-  info: {
-    displayName: 'Experiences';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    companyName: Schema.Attribute.String;
-    city: Schema.Attribute.String;
-    state: Schema.Attribute.String;
-    startDate: Schema.Attribute.String;
-    endDate: Schema.Attribute.String;
-    currentlyWorking: Schema.Attribute.Boolean;
-    workSummary: Schema.Attribute.Text;
-  };
-}
-
-export interface EducationEducation extends Struct.ComponentSchema {
-  collectionName: 'components_education_educations';
-  info: {
-    displayName: 'Education';
-    description: '';
-  };
-  attributes: {
-    universityName: Schema.Attribute.String;
-    startDate: Schema.Attribute.String;
-    endDate: Schema.Attribute.String;
-    major: Schema.Attribute.String;
-    degree: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'skills.skills': SkillsSkills;
+      'education.education': EducationEducation;
+      'experiences.experiences': ExperiencesExperiences;
       'shared.slider': SharedSlider;
       'shared.seo': SharedSeo;
       'shared.rich-text': SharedRichText;
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
-      'experiences.experiences': ExperiencesExperiences;
-      'education.education': EducationEducation;
     }
   }
 }
